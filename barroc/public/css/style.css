@@ -17,10 +17,15 @@
 }
 .center {
     display: flex;
+    flex-direction: column;
+    margin: 0 auto;
 }
 .space-right {
     display: flex;
     flex-direction: row-reverse;
+}
+.wrapper {
+    background: #F4F2EC;
 }
 /*===========================Header===========================*/
 .header-top {
@@ -38,6 +43,7 @@
     /*background: #CFC1B5;*/
     background: #F4F2EC;
     border-bottom: 1px solid #AD9A8A;
+    font-family: 'Open Sans', sans-serif;
 }
 .header-bottom ul {
     list-style-type: none;

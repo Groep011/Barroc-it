@@ -1,5 +1,5 @@
-<div class="header-top">
-    <div class="container-wide row-spaced">
+<div class="header-top center">
+    <div class="container-wide center">
         <p>
             Logged in as: Voor Achter
         </p>
