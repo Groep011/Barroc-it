@@ -1,0 +1,63 @@
+/*===========================General===========================*/
+*{
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 980px;
+    margin: 0 auto;
+}
+.container-wide {
+    width: 1200px;
+    margin: 0 auto;
+}
+.row-spaced {
+    display: flex;
+    flex-direction: row;
+}
+.center {
+    display: flex;
+}
+.space-right {
+    display: flex;
+    flex-direction: row-reverse;
+}
+/*===========================Header===========================*/
+.header-top {
+    background: #827C69;
+    font-family: 'Open Sans', sans-serif;
+}
+.header-top p {
+    font-size: 12px;
+    margin: 10px;
+    color: #FFFFFD;
+}
+.header-bottom {
+    border-top: 1px solid #AD9A8A;
+    list-style-type: none;
+    /*background: #CFC1B5;*/
+    background: #F4F2EC;
+    border-bottom: 1px solid #AD9A8A;
+}
+.header-bottom ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /*background-color: #CFC1B5;*/
+    background: #F4F2EC;
+}
+.header-bottom ul li a{
+    display: block;
+    color: #333;
+    text-align: center;
+    padding: 10px 13px;
+    text-decoration: none;
+}
+.header-bottom ul li a:hover {
+    background: #AD9A8A;
+}
+
+.main-content {
+    background: #F4F2EC;
+}
