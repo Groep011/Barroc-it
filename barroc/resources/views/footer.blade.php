@@ -1,8 +1,6 @@
 <div class="header-top center">
     <div class="container-wide center">
-        <p>
-            Logged in as: Voor Achter
-        </p>
+        <p>&copy; 2017 Groep-11<p>
         {{--logged in as {{ $user }}--}}
     </div>
 </div>
