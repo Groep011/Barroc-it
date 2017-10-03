@@ -1,3 +1,3 @@
-@include('header')
+@include('tamplates.header')
 <h1>test</h1>
-@include('footer')
+@include('tamplates.footer')
