@@ -2,8 +2,6 @@
 
 namespace App\Classes;
 
-use Illuminate\Database\Eloquent\Model;
-
 class Project extends Model
 {
     private $id_project;
