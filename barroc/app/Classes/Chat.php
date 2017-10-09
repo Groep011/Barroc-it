@@ -2,9 +2,7 @@
 
 namespace App\Classes;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Chat extends Model
+class Chat
 {
     private $chatNr;
     private $updateTime;

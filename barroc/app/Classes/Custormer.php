@@ -2,9 +2,7 @@
 
 namespace App\Classes;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Custormer extends Model
+class Custormer
 {
     private $klant_nr;
     private $name;

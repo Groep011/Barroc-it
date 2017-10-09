@@ -2,9 +2,7 @@
 
 namespace App\Classes;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Log extends Model
+class Log
 {
     private $id_user;
     private $username;
