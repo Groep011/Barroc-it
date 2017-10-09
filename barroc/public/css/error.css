@@ -1,0 +1,19 @@
+body {
+    background-color: #CFC1B5;
+}
+
+.whiteText {
+    color: #FFF;
+}
+
+.error-template {
+    padding: 200px 15px;
+    text-align: center;
+}
+.error-actions {
+    margin-top:15px;
+    margin-bottom:15px;
+}
+.error-actions .btn {
+    margin-right:10px;
+}
