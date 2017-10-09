@@ -38,7 +38,7 @@
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Voornaam Achternaam</a></li>
+                        <li><a href="#">Voornaam Achternaam dddd</a></li>
                     </p>
                 </div>
             </div>
