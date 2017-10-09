@@ -62,4 +62,9 @@ fabric.properties
 # Sonarlint plugin
 .idea/sonarlint
 
+
+.idea/Barroc-it.iml
+.idea/blade.xml
+.idea/modules.xml
+.idea/vcs.xml
 # End of https://www.gitignore.io/api/phpstorm
