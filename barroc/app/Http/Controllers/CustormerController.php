@@ -14,7 +14,9 @@ class CustormerController extends Controller
      */
     public function index()
     {
-        //
+        $custormers = \App\Custormer::all();
+        return view('sales')
+            ->with('custormers', $custormers);
     }
 
     /**
@@ -24,7 +26,7 @@ class CustormerController extends Controller
      */
     public function create()
     {
-        //
+        return view('AddCustormer');
     }
 
     /**

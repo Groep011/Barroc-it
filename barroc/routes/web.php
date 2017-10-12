@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::resource('custormer', 'custormerController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
