@@ -13,7 +13,11 @@ class CustormersProjects extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('custormers_projects', function (Blueprint $table) {
+            $table->increments('id');
+            $table->
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +27,6 @@ class CustormersProjects extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('custormers_projects');
     }
 }
