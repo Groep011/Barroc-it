@@ -1,0 +1,5 @@
+@include('templates/header')
+@yield('title')
+@yield('main-content')
+@include('templates/footer')
+@yield('scripts')

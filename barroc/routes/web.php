@@ -19,3 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('log', 'LogController');
+
+Route::get('develepment/search','DevelepmentController@search')->name('develepment.search');
+Route::resource('develepment', 'DevelepmentController');
