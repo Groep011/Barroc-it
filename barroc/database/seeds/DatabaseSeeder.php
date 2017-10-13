@@ -33,11 +33,11 @@ class DatabaseSeeder extends Seeder
 
             DB::table('projects')->insert([
                 'klant_nr'      =>  $faker->numberBetween(1,1000),
-                'debt_max'      =>  $faker->numberBetween(1000,2000),
+                'dept_max'      =>  $faker->numberBetween(1000,2000),
                 'debt'          =>  $faker->numberBetween(0,4000),
-                'ongoing'       =>  $faker->numberBetween(0,1),
+                'ongoing'        => $faker->randomElement(['T' ,'F']),
                 'note'          =>  $faker->text(200),
-                'done'          =>  $faker->numberBetween(0,1)
+                'done'          =>  $faker->randomElement(['T', 'F'])
             ]);
         }
         
