@@ -15,8 +15,12 @@ class CustormersProjects extends Migration
     {
         Schema::create('custormers_projects', function (Blueprint $table) {
             $table->increments('id');
-            $table->
+            $table->integer('custormer_id' , 0)->unsigned();
+            $table->integer('project_id', 0)->unsigned();
             $table->timestamps();
+
+            // $table->foreign('custormer_id')->references('id')->on('custormers');
+            // $table->foreign('project_id')->references('id')->on('projects');
         });
     }
 

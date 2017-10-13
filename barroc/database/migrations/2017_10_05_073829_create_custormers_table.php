@@ -14,7 +14,7 @@ class CreateCustormersTable extends Migration
     public function up()
     {
         Schema::create('custormers', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id', 10);
             $table->string('name',255);
             $table->string('phone_nr',255);
             $table->string('city',255);
