@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\model\Custormer;
+use App\Custormer;
 use Illuminate\Http\Request;
 
 class CustormerController extends Controller
@@ -14,7 +14,7 @@ class CustormerController extends Controller
      */
     public function index()
     {
-        $custormers = \App\Custormer::all();
+        $custormers = Custormer::all();
         return view('sales')
             ->with('custormers', $custormers);
     }
