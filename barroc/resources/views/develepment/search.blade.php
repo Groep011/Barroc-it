@@ -9,6 +9,7 @@
 <h2 class='col-xs-offset-2'>Projecten Search</h2>
     <hr>
     <form action="/develepment/search" class="col-xs-10 col-xs-offset-1" method="post">
+        {{ csrf_field() }}
         <div class="group-form">
             <input type="checkbox" name="ongoing">
             <label for="ongoing">Ongoing projects</label>
@@ -18,7 +19,7 @@
             <label for="done">Done projects</label>
         </div>
         <div class="group-form">
-            <input type="checkbox" name="name">
+            <label for="name-text">Projectname:</label>
             <input type="text" name='name-text' placeholder='Enter your project Name'>
         </div>
         <div class='group-form'>

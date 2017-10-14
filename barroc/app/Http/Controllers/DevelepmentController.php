@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\model\Project;
+use App\Classes\Develepment;
 
 class DevelepmentController extends Controller
 {
@@ -51,8 +52,36 @@ class DevelepmentController extends Controller
 
     public function results(Request $request)
     {
+        $ongoing = $request['ongoing'];
+        $done = $request['done'];
+        $text = $request['name-text'];
+        $sqlList;
+        $exeute = false;
 
-        return view('develepment/search');
+        if (isset($ongoing))
+        {
+            $sqlList = \App\Classen\Develepment::addSql( $sqlList," 'ongoing' , 'T' ");
+            $exeute = true;
+        }
+
+        if (isset($done))
+        {
+            $sqlList = \Develepment::addSql( $sqlList," 'done' , 'T' ");
+            $exeute = true;
+        }
+
+        if (isset($text))
+        {
+            $sqlList = \Develepment::addSql( $sqlList," 'name' , '$text' ");
+            $exeute = true;
+        }
+
+        if ($exeute)
+        {
+            return view('\develepment\search', compact('projecten', Project::table('projects')->select('*')->where("$sqlList")));
+        }
+
+        return $ongoing . " || " . $done . " || " . $text;
     }
     
     public function create()
