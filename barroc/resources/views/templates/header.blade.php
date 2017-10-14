@@ -8,6 +8,7 @@
         <title>Barroc-IT</title>
         <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}" />
         <link rel="stylesheet" href="https://bootswatch.com/lumen/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ URL::asset('css/dev.css') }}">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
     </head>
     <body>
@@ -29,12 +30,6 @@
                         <li><a href="#">voorbeeld</a></li>
                         @yield('nav-links')
                     </ul>
-                    <form class="navbar-form navbar-left" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">Voornaam Achternaam</a></li>
                     </p>

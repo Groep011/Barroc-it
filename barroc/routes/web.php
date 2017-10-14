@@ -21,4 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('log', 'LogController');
 
 Route::get('develepment/search','DevelepmentController@search')->name('develepment.search');
+Route::Post('develepment/search','DevelepmentController@results')->name('develepment.search.item');
 Route::resource('develepment', 'DevelepmentController');

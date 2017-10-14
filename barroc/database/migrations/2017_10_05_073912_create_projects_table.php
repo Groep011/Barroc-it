@@ -16,6 +16,7 @@ class CreateProjectsTable extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id', 10);
             $table->integer('klant_nr');
+            $table->string('name',255);
             $table->integer('dept_max');
             $table->integer('debt');
             $table->enum('ongoing', ['T', 'F']);

@@ -15,6 +15,24 @@ class DevelepmentController extends Controller
     public function index()
     {
         $projecten = Project::all();
+
+
+        /// test case
+        $faker =  \Faker\Factory::create();
+        $projecten = [
+            [
+                'id'        => 1,
+                'klant_nr'  => 1,
+                'name'      => $faker->name(),
+                'dept_max'  => 300,
+                'debt'      => 200,
+                'ongoing'   => 'T',
+                'note'      => "eeey",
+                'done'      => 'F',
+            ]
+        ];
+
+
         return view('develepment/index', compact('projecten', $projecten));
     }
 
@@ -26,6 +44,14 @@ class DevelepmentController extends Controller
 
     public function search()
     {
+        $projecten = Project::all();
+
+        return view('develepment/search', compact('projecten', $projecten));
+    }
+
+    public function results(Request $request)
+    {
+
         return view('develepment/search');
     }
     
@@ -53,7 +79,9 @@ class DevelepmentController extends Controller
      */
     public function show($id)
     {
-        //
+        $project = Project::find($id);
+
+        return $project;
     }
 
     /**

@@ -2,7 +2,7 @@
 
 @section('nav-links')
 <li><a href="develepment">projecten</a></li>
-<li><a href="develepment/search">projecten</a></li>
+<li><a href="develepment/search">Search</a></li>
 @endsection
 
 @section('title')
@@ -15,15 +15,22 @@
         <tr>
             <th class='col-xs-2'>Ongoing</th>
             <th class='col-xs-2'>Project Id</th>
-            <th class='col-xs-6'>Naam</th>
+            <th class='col-xs-5'>Naam</th>
             <th class='col-xs-2'>Info</th>
+            <th class='col-xs-1'>Done</th>
         </tr>
         @foreach ($projecten as $project)
         <tr>
-            <th>{{ $project }}</th>
-            <th>{{ $project['id'] }}</th>
-            <th>{{ $project['note'] }}</th>
-            <th><a href="/develepment/{{$project['id']}}">Info</a></th>
+            <th class='col-xs-2'>{{ $project['ongoing'] }}</th>
+            <th class='col-xs-2'>{{ $project['id'] }}</th>
+            <th class='col-xs-5'>{{ $project['name'] }}</th>
+            <th class='col-xs-2'><a href="/develepment/{{$project['id']}}">Info</a></th>
+            @if ($project['done'] == 'T')
+            <th class='col-xs-1'><img class='done-img' src="/img/dev/done.jpg" alt="done"></th>
+            @endif
+            @if ($project['done'] == 'F')
+            <th class='col-xs-1'><img class='done-img' src="/img/dev/not.jpg" alt="not-done"></th>
+            @endif
         </tr>
         @endforeach
     </table>
