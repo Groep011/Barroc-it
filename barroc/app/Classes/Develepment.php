@@ -4,8 +4,7 @@ namespace App\Classes;
 
 class Develepment
 {
-
-    public function addSql($sqlList, $sqlPart)
+    public static function addSql($sqlList, $sqlPart)
     {
         if (isset($sqlList))
         {

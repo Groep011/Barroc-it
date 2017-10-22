@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\model\Project;
+use Illuminate\Support\Facades\DB;
 use App\Classes\Develepment;
 
 class DevelepmentController extends Controller
@@ -55,33 +56,35 @@ class DevelepmentController extends Controller
         $ongoing = $request['ongoing'];
         $done = $request['done'];
         $text = $request['name-text'];
-        $sqlList;
+        $sqlList = null;
         $exeute = false;
-
         if (isset($ongoing))
         {
-            $sqlList = \App\Classen\Develepment::addSql( $sqlList," 'ongoing' , 'T' ");
+            $sqlList = Develepment::addSql( $sqlList," 'ongoing' , 'T' ");
             $exeute = true;
         }
 
         if (isset($done))
         {
-            $sqlList = \Develepment::addSql( $sqlList," 'done' , 'T' ");
+            $sqlList = Develepment::addSql( $sqlList," 'done' , 'T' ");
             $exeute = true;
         }
 
         if (isset($text))
         {
-            $sqlList = \Develepment::addSql( $sqlList," 'name' , '$text' ");
+            $sqlList = Develepment::addSql( $sqlList," 'name' , '$text' ");
             $exeute = true;
         }
 
         if ($exeute)
         {
-            return view('\develepment\search', compact('projecten', Project::table('projects')->select('*')->where("$sqlList")));
+            $test = DB::table('projects')->select('*')->where("$sqlList");
+            return view('\develepment\search', compact('projecten', $test));
         }
-
-        return $ongoing . " || " . $done . " || " . $text;
+        else
+        {
+            // return error !!!!!!!
+        }
     }
     
     public function create()
@@ -110,7 +113,7 @@ class DevelepmentController extends Controller
     {
         $project = Project::find($id);
 
-        return $project;
+        return view('develepment/info', compact('project', $project));
     }
 
     /**
