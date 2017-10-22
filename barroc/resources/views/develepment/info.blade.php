@@ -6,7 +6,7 @@
 @endsection
 
 @section('main-content')
-    <!-- printen info project -->    
+    <!-- printen info project -->
 @endsection
 
 @section('scripts')
