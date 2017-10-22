@@ -4,5 +4,5 @@ namespace App\Classes;
 
 class Chat
 {
-
+   
 }
