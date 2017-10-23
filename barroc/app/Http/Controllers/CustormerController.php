@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Custormer;
+use App\model\Project;
 use Illuminate\Http\Request;
 
 class CustormerController extends Controller
@@ -15,7 +16,7 @@ class CustormerController extends Controller
     public function index()
     {
         $custormers = Custormer::all();
-        return view('sales')
+        return view('sales.sales')
             ->with('custormers', $custormers);
     }
 
@@ -26,7 +27,7 @@ class CustormerController extends Controller
      */
     public function create()
     {
-        return view('AddCustormer');
+        return view('sales.addcustormer');
     }
 
     /**
@@ -37,7 +38,32 @@ class CustormerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        dd($request);
+
+        $this->validate($request, [
+            'Name' => 'required|string|min:6',
+            'Phonenumber' => 'required|string|min:8',
+            'City'  => 'required|string|min:3',
+            'Street'  => 'required|string|min:3',
+            'housenumber'  => 'required|string|min:1',
+            'bankaccount'  => 'required|string|min:10',
+        ]);
+
+        $custormer = new \App\Custormer();
+        $custormer->name = $request->Name;
+        $custormer->phone_nr        = $request->Phonenumber;
+        $custormer->city            = $request->City;
+        $custormer->street          = $request->Street;
+        $custormer->house_nr        = $request->housenumber;
+        $custormer->bank_acount     = $request->bankaccount;
+        $custormer->credible        = 'F';
+        $custormer->created_at      = now();
+        $custormer->save();
+
+        return redirect('custormer');
+
+
+
     }
 
     /**
@@ -48,7 +74,11 @@ class CustormerController extends Controller
      */
     public function show(Custormer $custormer)
     {
-        //
+        $custormers = Custormer::where('id', '=', $custormer->id)->first();
+        $projects = Project::where('klant_nr', '=', $custormer->id)->get();
+        return view('sales.custormer')
+            ->with('custormers', $custormers)
+            ->with('projects', $projects);
     }
 
     /**

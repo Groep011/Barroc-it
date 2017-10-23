@@ -16,8 +16,13 @@ Route::get('/', function () {
 });
 
 Route::resource('custormer', 'custormerController');
-
+Route::resource('project', 'ProjectController');
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('log', 'LogController');
+
+Route::get('addproject/{id}', function($id)
+{
+    $custormer = \App\Custormer::find($id);
+    return view('sales.addproject', compact('custormer'));
+});
