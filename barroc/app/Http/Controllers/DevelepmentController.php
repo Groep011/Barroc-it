@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\model\Project;
 use Illuminate\Support\Facades\DB;
 use App\Classes\Develepment;
+use App\model\Custormer;
 
 class DevelepmentController extends Controller
 {
@@ -17,23 +18,6 @@ class DevelepmentController extends Controller
     public function index()
     {
         $projecten = Project::all();
-
-
-        /// test case
-        $faker =  \Faker\Factory::create();
-        $projecten = [
-            [
-                'id'        => 1,
-                'klant_nr'  => 1,
-                'name'      => $faker->name(),
-                'dept_max'  => 300,
-                'debt'      => 200,
-                'ongoing'   => 'T',
-                'note'      => "eeey",
-                'done'      => 'F',
-            ]
-        ];
-
 
         return view('develepment/index', compact('projecten', $projecten));
     }
@@ -111,9 +95,11 @@ class DevelepmentController extends Controller
      */
     public function show($id)
     {
-        $project = Project::find($id);
-
-        return view('develepment/info', compact('project', $project));
+        $custormers = Custormer::where('id', '=', $id)->first();
+        $projects = Project::where('klant_nr', '=', $id)->get();
+        return view('develepment/info')
+            ->with('custormers', $custormers)
+            ->with('projects', $projects);
     }
 
     /**

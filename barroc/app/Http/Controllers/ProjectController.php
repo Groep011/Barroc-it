@@ -43,7 +43,7 @@ class ProjectController extends Controller
             'note'  => '|string|min:10',
         ]);
 
-        $project = new \App\Project();
+        $project = new \App\model\Project();
         $project->klant_nr  = $request->id;
         $project->name      = $request->Name;
         $project->dept_max  = $request->maxdebt;
@@ -52,6 +52,7 @@ class ProjectController extends Controller
         $project->note      = $request->note;
         $project->done      = 'F';
         $project->created_at = now();
+        $project->updated_at = now();
         $project->save();
 
         return redirect('');

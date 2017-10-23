@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Custormer;
+use App\model\Custormer;
 use App\model\Project;
 use Illuminate\Http\Request;
 
@@ -49,7 +49,7 @@ class CustormerController extends Controller
             'bankaccount'  => 'required|string|min:10',
         ]);
 
-        $custormer = new \App\Custormer();
+        $custormer = new \App\model\Custormer();
         $custormer->name = $request->Name;
         $custormer->phone_nr        = $request->Phonenumber;
         $custormer->city            = $request->City;

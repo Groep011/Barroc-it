@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
             ]);
 
             DB::table('custormers_projects')->insert([
-                'custormer_id'      => $faker->numberBetween(1,1000),
+                'custormer_id'      => ($i + 2000),
                 'project_id'        => $faker->numberBetween(1,1000),
                 'created_at'        => now()
                 ]);
