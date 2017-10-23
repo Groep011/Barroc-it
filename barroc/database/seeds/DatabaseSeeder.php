@@ -20,6 +20,5 @@ class DatabaseSeeder extends Seeder
                 'password'  =>  $faker->password()
             ]);
         }
-        
     }
 }

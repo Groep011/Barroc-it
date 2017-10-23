@@ -19,3 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('log', 'LogController');
+
+Route::resource('/finance', 'FinanceController');
+Route::put('/finance/{id}/done', 'FinanceController@updateProject');
