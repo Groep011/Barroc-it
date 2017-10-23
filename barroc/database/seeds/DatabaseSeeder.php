@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
 
             DB::table('projects')->insert([
                 'klant_nr'          =>  $faker->numberBetween(1,1000),
+                'name'              =>  $faker->word(),
                 'dept_max'          =>  $faker->numberBetween(1000,2000),
                 'debt'              =>  $faker->numberBetween(0,4000),
                 'ongoing'           => $faker->randomElement(['T' ,'F']),
@@ -40,7 +41,7 @@ class DatabaseSeeder extends Seeder
                 'done'              =>  $faker->randomElement(['T', 'F'])
             ]);
 
-            DB::table('projects')->insert([
+            DB::table('custormers_projects')->insert([
                 'custormer_id'      => $faker->numberBetween(1,1000),
                 'project_id'        => $faker->numberBetween(1,1000),
                 'created_at'        => now()
