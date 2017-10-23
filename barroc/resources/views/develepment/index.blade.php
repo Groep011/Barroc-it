@@ -22,8 +22,7 @@
         @foreach ($projecten as $project)
         <tr>@if ($project['ongoing'] == 'T')
             <th class='col-xs-1'><img class='done-img' src="/img/dev/done.jpg" alt="done"></th>
-            @endif
-            @if ($project['ongoing'] == 'F')
+            @elseif ($project['ongoing'] == 'F')
             <th class='col-xs-1'><img class='done-img' src="/img/dev/not.jpg" alt="not-done"></th>
             @endif
             <th class='col-xs-2'>{{ $project['id'] }}</th>
@@ -31,8 +30,7 @@
             <th class='col-xs-2'><a href="/develepment/{{$project['id']}}">Info</a></th>
             @if ($project['done'] == 'T')
             <th class='col-xs-1'><img class='done-img' src="/img/dev/done.jpg" alt="done"></th>
-            @endif
-            @if ($project['done'] == 'F')
+            @elseif ($project['done'] == 'F')
             <th class='col-xs-1'><img class='done-img' src="/img/dev/not.jpg" alt="not-done"></th>
             @endif
         </tr>
