@@ -26,3 +26,7 @@ Route::get('addproject/{id}', function($id)
     $custormer = \App\Custormer::find($id);
     return view('sales.addproject', compact('custormer'));
 });
+
+Route::get('develepment/search','DevelepmentController@search')->name('develepment.search');
+Route::Post('develepment/search','DevelepmentController@results')->name('develepment.search.item');
+Route::resource('develepment', 'DevelepmentController');
