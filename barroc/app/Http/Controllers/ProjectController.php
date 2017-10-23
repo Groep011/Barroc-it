@@ -35,7 +35,27 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        dd($request);
+        $this->validate($request, [
+            'Name' => 'required|string|min:6',
+            'id' => 'required|string|min:1',
+            'maxdebt'  => 'required|string|min:3',
+            'note'  => '|string|min:10',
+        ]);
+
+        $project = new \App\Project();
+        $project->klant_nr  = $request->id;
+        $project->name      = $request->Name;
+        $project->dept_max  = $request->maxdebt;
+        $project->debt      = 0;
+        $project->ongoing   = 'T';
+        $project->note      = $request->note;
+        $project->done      = 'F';
+        $project->created_at = now();
+        $project->save();
+
+        return redirect('');
+
     }
 
     /**
