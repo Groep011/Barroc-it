@@ -30,3 +30,6 @@ Route::get('addproject/{id}', function($id)
 Route::get('develepment/search','DevelepmentController@search')->name('develepment.search');
 Route::Post('develepment/search','DevelepmentController@results')->name('develepment.search.item');
 Route::resource('develepment', 'DevelepmentController');
+
+Route::resource('/finance', 'FinanceController');
+Route::put('/finance/{id}/done', 'FinanceController@updateProject');
