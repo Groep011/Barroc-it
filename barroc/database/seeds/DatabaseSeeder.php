@@ -41,11 +41,11 @@ class DatabaseSeeder extends Seeder
                 'done'              =>  $faker->randomElement(['T', 'F'])
             ]);
 
-            DB::table('custormers_projects')->insert([
-                'custormer_id'      => ($i + 2000),
-                'project_id'        => $faker->numberBetween(1,1000),
-                'created_at'        => now()
-                ]);
+//            DB::table('custormers_projects')->insert([
+//                'custormer_id'      => ($i + 2000),
+//                'project_id'        => $faker->numberBetween(1,1000),
+//                'created_at'        => now()
+//                ]);
         }
     }
 }
