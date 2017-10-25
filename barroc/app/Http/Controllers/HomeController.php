@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::user()->Check(4))return redirect()->action('\App\Http\Controllers\FinanceController@index');
+        if(Auth::user()->Check(4))return redirect()->action('\App\Http\Controllers\developmentController@index');
         if(Auth::user()->Check(2))return redirect()->action('\App\Http\Controllers\FinanceController@index');
         if(Auth::user()->Check(1))return redirect()->action('\App\Http\Controllers\CustormerController@index');
         return view('home');
