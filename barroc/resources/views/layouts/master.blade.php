@@ -30,7 +30,7 @@
                     @yield('nav-links')
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Voornaam Achternaam</a></li>
+                    <li><a href="/logout">logout</a></li>
                     </p>
             </div>
         </div>

@@ -11,6 +11,7 @@
 |
 */
 
+route::get('logout', function() { Auth::logout(); return redirect()->action('Auth\LoginController@login');});
 route::get('custormer/help', function() { return view('sales/help');});
 Route::resource('custormer', 'custormerController');
 Route::resource('project', 'ProjectController');
