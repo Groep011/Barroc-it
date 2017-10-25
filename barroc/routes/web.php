@@ -11,7 +11,7 @@
 |
 */
 
-route::get('help', function() { return view('custormer/help');});
+route::get('custormer/help', function() { return view('sales/help');});
 Route::resource('custormer', 'custormerController');
 Route::resource('project', 'ProjectController');
 Auth::routes();

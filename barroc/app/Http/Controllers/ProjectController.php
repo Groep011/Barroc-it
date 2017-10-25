@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\model\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -35,7 +36,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        if(!LevelCheck::Check(1))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm'); 
+        if(!Auth::user()->Check(1))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm'); 
 //        dd($request);
         $this->validate($request, [
             'Name' => 'required|string|min:6',

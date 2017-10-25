@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Classes\Develepment;
 use App\model\Custormer;
 use App\Classes\LevelCheck;
+use Illuminate\Support\Facades\Auth;
 
 class DevelepmentController extends Controller
 {
@@ -18,7 +19,7 @@ class DevelepmentController extends Controller
      */
     public function index()
     {
-        if(!LevelCheck::Check(4))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm'); // zorgt voor de afsluiting
+        if(!Auth::user()->Check(4))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm'); // zorgt voor de afsluiting
 
         $projecten = Project::all();
 
@@ -33,7 +34,7 @@ class DevelepmentController extends Controller
 
     public function search()
     {
-        if(!LevelCheck::Check(4))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm'); 
+        if(!Auth::user()->Check(4))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm'); 
         $projecten = Project::all();
 
         return view('develepment/search', compact('projecten', $projecten));
@@ -41,7 +42,7 @@ class DevelepmentController extends Controller
 
     public function results(Request $request)
     {
-        if(!LevelCheck::Check(4))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm'); 
+        if(!Auth::user()->Check(4))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm'); 
         $ongoing = $request['ongoing'];
         $done = $request['done'];
         $text = $request['name-text'];
@@ -104,7 +105,7 @@ class DevelepmentController extends Controller
      */
     public function show($id)
     {
-        if(!LevelCheck::Check(4))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm'); 
+        if(!Auth::user()->Check(4))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm'); 
         $custormers = Custormer::where('id', '=', $id)->first();
         $projects = Project::where('klant_nr', '=', $id)->get();
         return view('develepment/info')

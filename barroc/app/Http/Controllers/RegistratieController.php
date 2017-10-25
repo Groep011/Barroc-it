@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\model\Registratie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RegistratieController extends Controller
 {
