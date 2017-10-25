@@ -1,5 +1,7 @@
 @extends('layouts.master')
-
+@section('nav-links')
+    <li><a href="/custormer">Customer</a></li>
+@endsection
 @section('content')
     {{--{{dd($projects)}}--}}
 <div class="container">
