@@ -73,7 +73,7 @@ class DevelepmentController extends Controller
         }
         else
         {
-            $test = DB::table('projects')->select(DB::raw('*'))->where($sqlList)->get();
+            $test = DB::table('projects')->select(DB::raw('*'))->get();
             return view('develepment/search')->with('projecten', $test);
         }
     }
@@ -140,6 +140,6 @@ class DevelepmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // 
     }
 }
