@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('nav-links')
+    <li><a href="/finance">Finance</a></li>
+@endsection
 @section('content')
     {{--<table class="table table-hover">--}}
         {{--<th>--}}
@@ -19,7 +22,8 @@
         {{--</td>--}}
     {{--</table>--}}
     <div class="container">
-        <table class="table table-hover">
+        <table class="table table-striped">
+        <thead>
             <tr>
                 <th>naam</th>
                 <th>adres</th>
@@ -27,7 +31,9 @@
                 <th></th>
                 <th>info</th>
             </tr>
+        </thead>
             @foreach($custormers as $custormer)
+            <tbody>
                 <tr>
                     <td>{{ $custormer->name }}</td>
                     <td>{{ $custormer->street }} {{ $custormer->house_nr }}</td>
@@ -43,11 +49,12 @@
                             {{ method_field('PUT') }}
                             <input type="hidden" name="credible" value="{{ $custormer->credible }}" >
                             <input type="hidden" name="id" value="{{ $custormer->id }}">
-                            <button type="submit" class="btn btn-primary">change credibility</button>
+                            <button type="submit" class="btn btn-success">change credibility</button>
                         </form>
                     </td>
                     <td><button class="btn btn-default"><a href="{{ action('FinanceController@show', $custormer->id) }}">More info</a></button></td>
                 </tr>
+            </tbody>
             @endforeach
         </table>
     </div>

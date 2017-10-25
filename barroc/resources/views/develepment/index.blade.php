@@ -1,8 +1,8 @@
 @extends('layouts/develepment')
 
 @section('nav-links')
-<li><a href="/develepment">projecten</a></li>
-<li><a href="/develepment/search">Search</a></li>
+    <li><a href="/develepment">projecten</a></li>
+    <li><a href="/develepment/search">Search</a></li>
 @endsection
 
 @section('title')
@@ -29,12 +29,17 @@
             <th class='col-xs-2'>{{ $project['id'] }}</th>
             <th class='col-xs-6'>{{ $project['name'] }}</th>
             <th class='col-xs-2'><a href="/develepment/{{$project['klant_nr']}}">Info</a></th>
-            @if ($project['done'] == 'T')
-            <th class='col-xs-1'><img class='done-img' src="/img/dev/done.jpg" alt="done"></th>
-            @endif
-            @if ($project['done'] == 'F')
-            <th class='col-xs-1'><img class='done-img' src="/img/dev/not.jpg" alt="not-done"></th>
-            @endif
+            <form action="{{ action('FinanceController@updateProject', $project->id) }}" method="POST">
+                {{ csrf_field() }}
+                {{ method_field('PUT') }}
+                <input type="hidden" name="done" value="{{ $project->done }}">
+                <input type="hidden" name="id" value="{{ $project->id }}">
+                @if ($project['done'] == 'T')
+                    <th class='col-xs-1'><button type="submit"><img class='done-img' src="/img/dev/done.jpg" alt="done"></button></th>
+                @else
+                    <th class='col-xs-1'><button type="submit"><img class='done-img' src="/img/dev/not.jpg" alt="not-done"></button></th>
+                @endif
+            </form>
         </tr>
         @endforeach
     </table>
