@@ -114,4 +114,12 @@ class CustormerController extends Controller
     {
         //
     }
+
+    public function getCustormers()
+    {
+        $custormers = Custormer::select(array(
+            'name', 'street', 'house_nr', 'credible'
+        ));
+        return Datatables::of($custormers)->make(true);
+    }
 }

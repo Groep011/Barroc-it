@@ -135,4 +135,19 @@ class FinanceController extends Controller
         $project->save();
         return back();
     }
+
+    public function setOngoing(Request $request, $id)
+    {
+        $this->validate($request, [
+            'ongoing' => 'required|string|min:1',
+            'id' => 'required|integer|min:1'
+        ]);
+        $project = \App\model\Project::find($id);
+        if ($project->ongoing == 'T') {
+            $project->ongoing = 'F';
+        }
+        else $project->ongoing = 'T';
+        $project->save();
+        return back();
+    }
 }

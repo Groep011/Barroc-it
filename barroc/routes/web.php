@@ -30,3 +30,4 @@ Route::resource('develepment', 'DevelepmentController');
 
 Route::resource('/finance', 'FinanceController');
 Route::put('/finance/{id}/done', 'FinanceController@updateProject');
+Route::put('/finance/{id}/ongoing', 'FinanceController@setOngoing');
