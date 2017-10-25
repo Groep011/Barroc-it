@@ -17,7 +17,7 @@
         </ul>
     @endif
     <h1>Add customer</h1>
-
+        <a href="help" class="help-block">?</a>
     <form action="/custormer" method="post">
         <div class="form-group">
             {{csrf_field()}}
