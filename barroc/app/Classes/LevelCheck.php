@@ -11,23 +11,5 @@ use \Illuminate\Routing\Redirector;
 class LevelCheck
 {
 
-    public static function Check($rank)
-    {
-        if (Auth::user() != NULL)
-        {
-            if (Auth::user()->rank = $rank)
-            {
-                return true;;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
-    }
-
+   
 }
