@@ -6,16 +6,19 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
+                    <div class="panel-body">
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                            <?php
+                                use Illuminate\Support\Facades\Auth;
+                                use App\User;
+              //                  dd(Auth::user()->rank);
 
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
+                            ?>
+                    </div>
             </div>
         </div>
     </div>

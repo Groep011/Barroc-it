@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             DB::table('users')->insert([
                 'name'              =>  $faker->name(),
                 'email'             =>  $faker->email(),
-                'password'          =>  $faker->password()
+                'password'          =>  $faker->password(),
+                'rank'              =>  $faker->randomElement(['1', '2' ,'4'])
             ]);
 
             DB::table('custormers')->insert([

@@ -1,11 +1,7 @@
 @extends('layouts.master')
-
 @section('nav-links')
-    <li><a href="finance">Customers</a></li>
-    <li><a href=""></a></li>
-    <li><a href=""></a></li>
+    <li><a href="/finance">Finance</a></li>
 @endsection
-
 @section('content')
     {{--<table class="table table-hover">--}}
         {{--<th>--}}

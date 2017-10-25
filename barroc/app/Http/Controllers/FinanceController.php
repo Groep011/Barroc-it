@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Classes\Develepment;
+use Illuminate\Support\Facades\DB;
 
 class FinanceController extends Controller
 {
@@ -135,12 +137,37 @@ class FinanceController extends Controller
         $project->save();
         return back();
     }
+    public function results(Request $request)
+    {
+        
+        $text = $request['name-text'];
+        $sqlList = null;
+        $exeute = false;
+        if (isset($text))
+        {
+            $sqlList = ['name' , '=', $text];
+            $exeute = true;
+        }
+
+        if ($exeute)
+        {
+            $test = DB::table('custormer')->select(DB::raw('*'))->where([$sqlList])->get();
+            
+            //dd($test);
+            return view('search')->with('projecten', $test);
+        }
+        else
+        {
+            $test = DB::table('projects')->select(DB::raw('*'))->get();
+            return view('search')->with('custormers', $test);
+        }
+    }
 
     public function setOngoing(Request $request, $id)
     {
         $this->validate($request, [
-            'ongoing' => 'required|string|min:1',
-            'id' => 'required|integer|min:1'
+           'ongoing' => 'required|string|min:1',
+           'id' => 'required|integer|min:1'
         ]);
         $project = \App\model\Project::find($id);
         if ($project->ongoing == 'T') {

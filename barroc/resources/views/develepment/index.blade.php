@@ -1,8 +1,8 @@
 @extends('layouts/develepment')
 
 @section('nav-links')
-<li><a href="/develepment">projecten</a></li>
-<li><a href="/develepment/search">Search</a></li>
+    <li><a href="/develepment">projecten</a></li>
+    <li><a href="/develepment/search">Search</a></li>
 @endsection
 
 @section('title')
