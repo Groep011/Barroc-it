@@ -12,7 +12,12 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        You are logged in!
+                            <?php
+                                
+                            if(LevelCheck::Check(4))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm');
+                            if(LevelCheck::Check(2))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm');
+                            if(LevelCheck::Check(1))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm');
+                            ?>
                     </div>
             </div>
         </div>
