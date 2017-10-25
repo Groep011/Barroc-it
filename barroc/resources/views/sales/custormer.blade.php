@@ -37,7 +37,7 @@
             <th>Project Name</th>
             <th>Ongoing</th>
             <th>Finished</th>
-            <th></th>
+            <th>note</th>
         </tr>
         @foreach($projects as $project)
 
@@ -54,7 +54,7 @@
                 @else
                     <td>No</td>
                 @endif
-                <td><a href="#" class="btn btn-success">View</a></td>
+                <td>{{$project->note}}</td>
             </tr>
             @endforeach
     </table>

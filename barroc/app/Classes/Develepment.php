@@ -8,11 +8,11 @@ class Develepment
     {
         if (isset($sqlList))
         {
-            return $sqlList . "," . $sqlPart;
+            return array_merge($sqlList, [$sqlPart]);
         }
         else
         {
-            return $sqlPart;
+            return [$sqlPart];
         }
     }
 }

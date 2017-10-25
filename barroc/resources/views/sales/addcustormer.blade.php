@@ -18,7 +18,7 @@
             <input type="text" name="Name" id="name" placeholder="Company Name" class="form-control">
         </div>
         <div class="form-group">
-            <input type="tel" name="Phonenumber" id="phonenumber" placeholder="Phonenumber" class="form-control">
+            <input type="number" name="Phonenumber" id="phonenumber" placeholder="Phonenumber" class="form-control">
         </div>
         <div class="form-group">
             <input type="text" name="City" id="city" placeholder="City" class="form-control">

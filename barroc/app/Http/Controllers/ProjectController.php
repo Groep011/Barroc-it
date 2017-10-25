@@ -39,7 +39,7 @@ class ProjectController extends Controller
         $this->validate($request, [
             'Name' => 'required|string|min:6',
             'id' => 'required|string|min:1',
-            'maxdebt'  => 'required|string|min:3',
+            'maxdebt'  => 'required|string|min:3|max:5',
             'note'  => '|string|min:10',
         ]);
 
@@ -55,7 +55,7 @@ class ProjectController extends Controller
         $project->updated_at = now();
         $project->save();
 
-        return redirect('');
+        return redirect('custormer/'.$request->id);
 
     }
 

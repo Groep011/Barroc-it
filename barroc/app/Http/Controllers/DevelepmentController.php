@@ -7,6 +7,7 @@ use App\model\Project;
 use Illuminate\Support\Facades\DB;
 use App\Classes\Develepment;
 use App\model\Custormer;
+use App\Classes\LevelCheck;
 
 class DevelepmentController extends Controller
 {
@@ -17,6 +18,8 @@ class DevelepmentController extends Controller
      */
     public function index()
     {
+        //if(!LevelCheck::Check(4))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm'); // zorgt voor de afsluiting
+
         $projecten = Project::all();
 
         return view('develepment/index', compact('projecten', $projecten));
@@ -44,30 +47,34 @@ class DevelepmentController extends Controller
         $exeute = false;
         if (isset($ongoing))
         {
-            $sqlList = Develepment::addSql( $sqlList," 'ongoing' , 'T' ");
+            $sqlList = Develepment::addSql( $sqlList,['ongoing' , '=', 'T']);
             $exeute = true;
+            echo 1;
         }
 
         if (isset($done))
         {
-            $sqlList = Develepment::addSql( $sqlList," 'done' , 'T' ");
+            $sqlList = Develepment::addSql( $sqlList,['done' , '=', 'T']);
             $exeute = true;
         }
 
         if (isset($text))
         {
-            $sqlList = Develepment::addSql( $sqlList," 'name' , '$text' ");
+            $sqlList = Develepment::addSql( $sqlList,['name' , '=', $text]);
             $exeute = true;
         }
 
         if ($exeute)
         {
-            $test = DB::table('projects')->select('*')->where("$sqlList");
-            return view('\develepment\search', compact('projecten', $test));
+            $test = DB::table('projects')->select(DB::raw('*'))->where($sqlList)->get();
+            
+            //dd($test);
+            return view('develepment/search')->with('projecten', $test);
         }
         else
         {
-            // return error !!!!!!!
+            $test = DB::table('projects')->select(DB::raw('*'))->where($sqlList)->get();
+            return view('develepment/search')->with('projecten', $test);
         }
     }
     
