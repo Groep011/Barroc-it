@@ -28,7 +28,7 @@
             @endif
             <th class='col-xs-2'>{{ $project['id'] }}</th>
             <th class='col-xs-6'>{{ $project['name'] }}</th>
-            <th class='col-xs-2'><a href="/develepment/{{$project['id']}}">Info</a></th>
+            <th class='col-xs-2'><a href="/develepment/{{$project['klant_nr']}}">Info</a></th>
             @if ($project['done'] == 'T')
             <th class='col-xs-1'><img class='done-img' src="/img/dev/done.jpg" alt="done"></th>
             @endif

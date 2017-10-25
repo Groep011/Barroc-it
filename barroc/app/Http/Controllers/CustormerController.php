@@ -42,7 +42,7 @@ class CustormerController extends Controller
 
         $this->validate($request, [
             'Name' => 'required|string|min:6',
-            'Phonenumber' => 'required|string|min:8',
+            'Phonenumber' => 'required|integer|min:8',
             'City'  => 'required|string|min:3',
             'Street'  => 'required|string|min:3',
             'housenumber'  => 'required|string|min:1',
