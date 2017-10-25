@@ -25,9 +25,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::user()->Check(4))return redirect()->action('\App\Http\Controllers\FinanceController@index');
+
+        dd(Auth::user()->Check(2));
+       // dd(Auth::user()->rank);
+        //if(Auth::user()->Check(4))return redirect()->action('\App\Http\Controllers\FinanceController@index');
         if(Auth::user()->Check(2))return redirect()->action('\App\Http\Controllers\FinanceController@index');
-        if(Auth::user()->Check(1))return redirect()->action('\App\Http\Controllers\CustormerController@index');
+        if(Auth::user()->Check(1))return redirect()->action('\App\Http\Controllers\custormerController@index');
         return view('home');
     }
 }

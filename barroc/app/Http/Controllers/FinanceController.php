@@ -139,7 +139,7 @@ class FinanceController extends Controller
     }
     public function results(Request $request)
     {
-        
+
         $text = $request['name-text'];
         $sqlList = null;
         $exeute = false;

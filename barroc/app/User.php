@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'rank',
+        'name', 'email', 'password',
     ];
 
     /**
@@ -32,9 +32,10 @@ class User extends Authenticatable
     {
         if (\Auth::user() != NULL)
         {
-            if (\Auth::user()->rank = $rank)
+            //dd($rank ."|". \Auth::user()->rank);
+            if (\Auth::user()->rank == $rank)
             {
-                return true;;
+                return true;
             }
             else
             {
