@@ -15,6 +15,7 @@ class CustormerController extends Controller
      */
     public function index()
     {
+        if(!LevelCheck::Check(1))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm'); 
         $custormers = Custormer::all();
         return view('sales.sales')
             ->with('custormers', $custormers);
@@ -27,6 +28,7 @@ class CustormerController extends Controller
      */
     public function create()
     {
+        if(!LevelCheck::Check(1))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm'); 
         return view('sales.addcustormer');
     }
 
@@ -38,6 +40,7 @@ class CustormerController extends Controller
      */
     public function store(Request $request)
     {
+        if(!LevelCheck::Check(1))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm'); 
 //        dd($request);
 
         $this->validate($request, [
@@ -74,6 +77,7 @@ class CustormerController extends Controller
      */
     public function show(Custormer $custormer)
     {
+        if(!LevelCheck::Check(1))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm'); 
         $custormers = Custormer::where('id', '=', $custormer->id)->first();
         $projects = Project::where('klant_nr', '=', $custormer->id)->get();
         return view('sales.custormer')
@@ -117,6 +121,7 @@ class CustormerController extends Controller
 
     public function getCustormers()
     {
+        if(!LevelCheck::Check(1))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm'); 
         $custormers = Custormer::select(array(
             'name', 'street', 'house_nr', 'credible'
         ));

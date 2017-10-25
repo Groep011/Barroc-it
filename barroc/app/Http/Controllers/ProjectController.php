@@ -35,6 +35,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+        if(!LevelCheck::Check(1))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm'); 
 //        dd($request);
         $this->validate($request, [
             'Name' => 'required|string|min:6',

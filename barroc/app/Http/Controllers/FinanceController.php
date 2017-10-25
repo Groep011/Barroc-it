@@ -15,6 +15,7 @@ class FinanceController extends Controller
      */
     public function index()
     {
+        if(!LevelCheck::Check(2))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm'); 
         //$projects = \App\model\Project::all();
         $custormers = \App\model\Custormer::all();
         return view('finance.finance')
@@ -50,6 +51,7 @@ class FinanceController extends Controller
      */
     public function show($id)
     {
+        if(!LevelCheck::Check(2))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm'); 
         $custormer = \App\model\Custormer::find($id);
         $projects = \App\model\Project::where('klant_nr', $id)->get();
 
@@ -94,6 +96,7 @@ class FinanceController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if(!LevelCheck::Check(2))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm'); 
         $this->validate($request, [
             'credible' => 'required|string|min:1',
             'id' => 'required|integer|min:1'
@@ -125,6 +128,7 @@ class FinanceController extends Controller
      */
     public function updateProject(Request $request, $id)
     {
+        if(!LevelCheck::Check(2))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm'); 
         $this->validate($request, [
             'done' => 'required|string|min:1',
             'id' => 'required|integer|min:1'
@@ -139,7 +143,7 @@ class FinanceController extends Controller
     }
     public function results(Request $request)
     {
-
+        if(!LevelCheck::Check(2))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm'); 
         $text = $request['name-text'];
         $sqlList = null;
         $exeute = false;
@@ -165,6 +169,7 @@ class FinanceController extends Controller
 
     public function setOngoing(Request $request, $id)
     {
+        if(!LevelCheck::Check(2))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm'); 
         $this->validate($request, [
            'ongoing' => 'required|string|min:1',
            'id' => 'required|integer|min:1'

@@ -10,7 +10,7 @@ require( app_path() . '\Classes\LevelCheck.php');
 @section('title')
 <h2 class='col-xs-offset-2'>Projecten Search</h2>
     <hr>
-    <form action="/search" class="col-xs-10 col-xs-offset-1" method="post">
+    <form action="/sea  rch" class="col-xs-10 col-xs-offset-1" method="post">
         {{ csrf_field() }}
         <div class="group-form">
             <label for="name-text">customer name:</label>
