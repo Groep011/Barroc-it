@@ -4,13 +4,13 @@ require( app_path() . '\Classes\LevelCheck.php');
 
 ?>
 @section('nav-links')
-<a href="/">Home</a>
+<li><a href="/">Home</a></li>
 @endsection
 
 @section('title')
 <h2 class='col-xs-offset-2'>Projecten Search</h2>
     <hr>
-    <form action="/finance/search" class="col-xs-10 col-xs-offset-1" method="post">
+    <form action="/search" class="col-xs-10 col-xs-offset-1" method="post">
         {{ csrf_field() }}
         <div class="group-form">
             <label for="name-text">customer name:</label>
@@ -23,68 +23,43 @@ require( app_path() . '\Classes\LevelCheck.php');
     <hr>
 @endsection
 
-@section('content')
+@section('main-content')
     @if( \Auth::user()->Check(1) )
-        {{--{{dd($projects)}}--}}
-<div class="container">
-    {{--{{dd($custormers->id)}}--}}
-    <h1>{{$custormers->name}}</h1>
-
-    <h2>Info</h2>
+    <div class="container">
     <table class="table table-striped">
         <tr>
-            <th>Phone number</th>
-            <td>{{$custormers->phone_nr}}</td>
-        </tr>
-        <tr>
+            <th>Company Name</th>
+            <th>Phone Number</th>
             <th>City</th>
-            <td>{{$custormers->city}}</td>
-        </tr>
-        <tr>
-            <th>Adress</th>
-            <td>{{$custormers->street}} {{$custormers->housnumber}}</td>
-        </tr>
-        <tr>
+            <th>Streetname</th>
+            <th>House Number</th>
             <th>Credible</th>
-            @if($custormers->credible == 'T')
+            <th></th>
+            <th></th>
+        </tr>
+
+
+    @foreach($custormers as $custormer)
+        <tr>
+        
+            <td>{{$custormer->name}}</td>
+            <td>{{$custormer->phone_nr}}</td>
+            <td>{{$custormer->city}}</td>
+            <td>{{$custormer->street}}</td>
+            <td>{{$custormer->house_nr}}</td>
+            @if($custormer->credible == 'T')
                 <td>Yes</td>
             @else
                 <td>No</td>
             @endif
+            <td><a href="{{action('custormerController@show', $custormer->id)}}" class="btn btn-success">View</a></td>
+
         </tr>
-    </table>
-
-    <h2>Projects</h2>
-    <a href="../addproject/{{$custormers->id}}" class="btn-success btn">Add new project</a>
-    <table class="table table-striped">
-        <tr>
-            <th>Project Name</th>
-            <th>Ongoing</th>
-            <th>Finished</th>
-            <th>note</th>
-        </tr>
-        @foreach($projects as $project)
-
-            <tr>
-                <th>{{$project->name}}</th>
-                @if($project->ongoing == 'T')
-                    <td>Yes</td>
-                @else
-                    <td>No</td>
-                @endif
-
-                @if($project->done == 'T')
-                    <td>Yes</td>
-                @else
-                    <td>No</td>
-                @endif
-                <td>{{$project->note}}</td>
-            </tr>
-            @endforeach
+    @endforeach
     </table>
 </div>
     @endif
-    @if(\Auth::user()->Check(1) )
+    @if(\Auth::user()->Check(2) )
         {{--<table class="table table-hover">--}}
         {{--<th>--}}
             {{--<tr>Pause</tr>--}}

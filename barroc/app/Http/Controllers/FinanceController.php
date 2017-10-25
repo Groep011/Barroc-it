@@ -151,14 +151,14 @@ class FinanceController extends Controller
 
         if ($exeute)
         {
-            $test = DB::table('custormer')->select(DB::raw('*'))->where([$sqlList])->get();
+            $test = DB::table('custormers')->select(DB::raw('*'))->where([$sqlList])->get();
             
             //dd($test);
-            return view('search')->with('projecten', $test);
+            return view('search')->with('custormers', $test);
         }
         else
         {
-            $test = DB::table('projects')->select(DB::raw('*'))->get();
+            $test = DB::table('custormers')->select(DB::raw('*'))->get();
             return view('search')->with('custormers', $test);
         }
     }
