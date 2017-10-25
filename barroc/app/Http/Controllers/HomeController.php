@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if(Auth::user()->Check(4))return redirect()->action('\App\Http\Controllers\FinanceController@index');
+        if(Auth::user()->Check(2))return redirect()->action('\App\Http\Controllers\FinanceController@index');
+        if(Auth::user()->Check(1))return redirect()->action('\App\Http\Controllers\CustormerController@index');
         return view('home');
     }
 }

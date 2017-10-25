@@ -13,10 +13,10 @@
                             </div>
                         @endif
                             <?php
-                                
-                            if(LevelCheck::Check(4))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm');
-                            if(LevelCheck::Check(2))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm');
-                            if(LevelCheck::Check(1))return redirect()->action('\App\Http\Controllers\Auth\LoginController@showLoginForm');
+                                use Illuminate\Support\Facades\Auth;
+                                use App\User;
+              //                  dd(Auth::user()->rank);
+
                             ?>
                     </div>
             </div>
