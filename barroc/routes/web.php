@@ -29,8 +29,8 @@ Route::Post('develepment/search','DevelepmentController@results')->name('develep
 Route::resource('develepment', 'DevelepmentController');
 
 
-Route::get('/search', 'FinanceController@results');
 Route::post('/search', 'FinanceController@results');
+Route::get('/search', 'FinanceController@results');
 Route::resource('/finance', 'FinanceController');
 Route::put('/finance/{id}/done', 'FinanceController@updateProject');
 Route::put('/finance/{id}/ongoing', 'FinanceController@setOngoing');
